@@ -7,3 +7,4 @@ pub use atsam3x8e_pac as pac;
 
 pub mod clocks;
 pub mod efc;
+pub mod watchdog;
