@@ -1,0 +1,15 @@
+[workspace]
+resolver = "2"
+members = ["atsam3x8e-pac"]
+
+[workspace.package]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/flitsystems/sam3x-hal"
+rust-version = "1.81"
+
+[workspace.dependencies]
+cortex-m = { version = "0.7.7", features = ["critical-section-single-core"] }
+cortex-m-rt = "0.7.5"
+critical-section = "1.2"
+vcell = "0.1.3"

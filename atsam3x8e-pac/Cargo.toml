@@ -1,0 +1,30 @@
+[package]
+name = "atsam3x8e-pac"
+version = "0.1.0"
+description = "Peripheral access crate for the Microchip ATSAM3X8E / SAM3X8ERT (generated with svd2rust, committed output)"
+keywords = ["arm", "cortex-m", "sam3x", "pac", "svd2rust"]
+categories = ["embedded", "hardware-support", "no-std"]
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+# The SVD keeps Atmel's license and is only an input of gen.sh; the crate
+# ships the generated code alone.
+exclude = ["svd/", "gen.sh"]
+
+[dependencies]
+cortex-m = { workspace = true }
+vcell = { workspace = true }
+critical-section = { workspace = true, optional = true }
+cortex-m-rt = { workspace = true, optional = true }
+
+[features]
+rt = ["cortex-m-rt/device"]
+critical-section = ["dep:critical-section"]
+
+[lints.clippy]
+module_inception = "allow"
+
+[package.metadata.docs.rs]
+features = ["rt", "critical-section"]
+targets = ["thumbv7m-none-eabi"]

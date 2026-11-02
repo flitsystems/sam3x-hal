@@ -1,0 +1,22 @@
+#[doc = "Register `CDR` writer"]
+pub type W = crate::W<CdrSpec>;
+#[doc = "Field `DATA` writer - Data to Convert"]
+pub type DataW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl W {
+    #[doc = "Bits 0:31 - Data to Convert"]
+    #[inline(always)]
+    pub fn data(&mut self) -> DataW<'_, CdrSpec> {
+        DataW::new(self, 0)
+    }
+}
+#[doc = "Conversion Data Register\n\nYou can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cdr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CdrSpec;
+impl crate::RegisterSpec for CdrSpec {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [`cdr::W`](W) writer structure"]
+impl crate::Writable for CdrSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets CDR to value 0"]
+impl crate::Resettable for CdrSpec {}

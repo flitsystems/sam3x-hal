@@ -1,0 +1,35 @@
+#[doc = "Register `DADDR` reader"]
+pub type R = crate::R<DaddrSpec>;
+#[doc = "Register `DADDR` writer"]
+pub type W = crate::W<DaddrSpec>;
+#[doc = "Field `DADDR` reader - Channel x Destination Address"]
+pub type DaddrR = crate::FieldReader<u32>;
+#[doc = "Field `DADDR` writer - Channel x Destination Address"]
+pub type DaddrW<'a, REG> = crate::FieldWriter<'a, REG, 32, u32>;
+impl R {
+    #[doc = "Bits 0:31 - Channel x Destination Address"]
+    #[inline(always)]
+    pub fn daddr(&self) -> DaddrR {
+        DaddrR::new(self.bits)
+    }
+}
+impl W {
+    #[doc = "Bits 0:31 - Channel x Destination Address"]
+    #[inline(always)]
+    pub fn daddr(&mut self) -> DaddrW<'_, DaddrSpec> {
+        DaddrW::new(self, 0)
+    }
+}
+#[doc = "DMAC Channel Destination Address Register (ch_num = 0)\n\nYou can [`read`](crate::Reg::read) this register and get [`daddr::R`](R). You can [`reset`](crate::Reg::reset), [`write`](crate::Reg::write), [`write_with_zero`](crate::Reg::write_with_zero) this register using [`daddr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct DaddrSpec;
+impl crate::RegisterSpec for DaddrSpec {
+    type Ux = u32;
+}
+#[doc = "`read()` method returns [`daddr::R`](R) reader structure"]
+impl crate::Readable for DaddrSpec {}
+#[doc = "`write(|w| ..)` method takes [`daddr::W`](W) writer structure"]
+impl crate::Writable for DaddrSpec {
+    type Safety = crate::Unsafe;
+}
+#[doc = "`reset()` method sets DADDR to value 0"]
+impl crate::Resettable for DaddrSpec {}

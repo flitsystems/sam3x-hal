@@ -1,0 +1,97 @@
+#[doc = "Register `CHDR` writer"]
+pub type W = crate::W<ChdrSpec>;
+#[doc = "Field `DIS0` writer - Disable \\[5:0\\]"]
+pub type Dis0W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `DIS1` writer - Disable \\[5:0\\]"]
+pub type Dis1W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `DIS2` writer - Disable \\[5:0\\]"]
+pub type Dis2W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `DIS3` writer - Disable \\[5:0\\]"]
+pub type Dis3W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `DIS4` writer - Disable \\[5:0\\]"]
+pub type Dis4W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `DIS5` writer - Disable \\[5:0\\]"]
+pub type Dis5W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RES0` writer - Resume \\[5:0\\]"]
+pub type Res0W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RES1` writer - Resume \\[5:0\\]"]
+pub type Res1W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RES2` writer - Resume \\[5:0\\]"]
+pub type Res2W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RES3` writer - Resume \\[5:0\\]"]
+pub type Res3W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RES4` writer - Resume \\[5:0\\]"]
+pub type Res4W<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RES5` writer - Resume \\[5:0\\]"]
+pub type Res5W<'a, REG> = crate::BitWriter<'a, REG>;
+impl W {
+    #[doc = "Bit 0 - Disable \\[5:0\\]"]
+    #[inline(always)]
+    pub fn dis0(&mut self) -> Dis0W<'_, ChdrSpec> {
+        Dis0W::new(self, 0)
+    }
+    #[doc = "Bit 1 - Disable \\[5:0\\]"]
+    #[inline(always)]
+    pub fn dis1(&mut self) -> Dis1W<'_, ChdrSpec> {
+        Dis1W::new(self, 1)
+    }
+    #[doc = "Bit 2 - Disable \\[5:0\\]"]
+    #[inline(always)]
+    pub fn dis2(&mut self) -> Dis2W<'_, ChdrSpec> {
+        Dis2W::new(self, 2)
+    }
+    #[doc = "Bit 3 - Disable \\[5:0\\]"]
+    #[inline(always)]
+    pub fn dis3(&mut self) -> Dis3W<'_, ChdrSpec> {
+        Dis3W::new(self, 3)
+    }
+    #[doc = "Bit 4 - Disable \\[5:0\\]"]
+    #[inline(always)]
+    pub fn dis4(&mut self) -> Dis4W<'_, ChdrSpec> {
+        Dis4W::new(self, 4)
+    }
+    #[doc = "Bit 5 - Disable \\[5:0\\]"]
+    #[inline(always)]
+    pub fn dis5(&mut self) -> Dis5W<'_, ChdrSpec> {
+        Dis5W::new(self, 5)
+    }
+    #[doc = "Bit 8 - Resume \\[5:0\\]"]
+    #[inline(always)]
+    pub fn res0(&mut self) -> Res0W<'_, ChdrSpec> {
+        Res0W::new(self, 8)
+    }
+    #[doc = "Bit 9 - Resume \\[5:0\\]"]
+    #[inline(always)]
+    pub fn res1(&mut self) -> Res1W<'_, ChdrSpec> {
+        Res1W::new(self, 9)
+    }
+    #[doc = "Bit 10 - Resume \\[5:0\\]"]
+    #[inline(always)]
+    pub fn res2(&mut self) -> Res2W<'_, ChdrSpec> {
+        Res2W::new(self, 10)
+    }
+    #[doc = "Bit 11 - Resume \\[5:0\\]"]
+    #[inline(always)]
+    pub fn res3(&mut self) -> Res3W<'_, ChdrSpec> {
+        Res3W::new(self, 11)
+    }
+    #[doc = "Bit 12 - Resume \\[5:0\\]"]
+    #[inline(always)]
+    pub fn res4(&mut self) -> Res4W<'_, ChdrSpec> {
+        Res4W::new(self, 12)
+    }
+    #[doc = "Bit 13 - Resume \\[5:0\\]"]
+    #[inline(always)]
+    pub fn res5(&mut self) -> Res5W<'_, ChdrSpec> {
+        Res5W::new(self, 13)
+    }
+}
+#[doc = "DMAC Channel Handler Disable Register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`chdr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct ChdrSpec;
+impl crate::RegisterSpec for ChdrSpec {
+    type Ux = u32;
+}
+#[doc = "`write(|w| ..)` method takes [`chdr::W`](W) writer structure"]
+impl crate::Writable for ChdrSpec {
+    type Safety = crate::Unsafe;
+}
