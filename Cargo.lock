@@ -3,6 +3,13 @@
 version = 4
 
 [[package]]
+name = "arduino-due"
+version = "0.1.0"
+dependencies = [
+ "sam3x-hal",
+]
+
+[[package]]
 name = "atsam3x8e-pac"
 version = "0.1.0"
 dependencies = [
@@ -148,6 +155,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8d5439c4ad607c3c23abf66de8c8bf57ba8adcd1f129e699851a6e43935d339d"
 
 [[package]]
+name = "panic-halt"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a513e167849a384b7f9b746e517604398518590a9142f4846a32e3c2a4de7b11"
+
+[[package]]
 name = "proc-macro2"
 version = "1.0.107"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -182,6 +195,17 @@ dependencies = [
  "critical-section",
  "defmt",
  "embedded-hal 1.0.0",
+]
+
+[[package]]
+name = "sam3x-hal-examples"
+version = "0.1.0"
+dependencies = [
+ "arduino-due",
+ "cortex-m",
+ "cortex-m-rt",
+ "critical-section",
+ "panic-halt",
 ]
 
 [[package]]

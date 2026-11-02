@@ -1,6 +1,7 @@
 {
   # Dev shell: rustup reads rust-toolchain.toml, so the Rust version is
-  # pinned there and nixpkgs only provides the tools around it.
+  # pinned there and nixpkgs only provides the tools around it. bossa
+  # provides bossac, which arduino-due/flash.sh flashes the Due with.
   description = "sam3x-hal dev shell";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
@@ -13,7 +14,7 @@
     in {
       devShells = forAllSystems (pkgs: {
         default = pkgs.mkShell {
-          packages = with pkgs; [ git rustup ];
+          packages = with pkgs; [ git rustup bossa ];
         };
       });
     };

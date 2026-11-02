@@ -4,3 +4,5 @@ target = "thumbv7m-none-eabi"
 [target.thumbv7m-none-eabi]
 # cortex-m-rt's linker script; the board crate supplies memory.x.
 rustflags = ["-C", "link-arg=-Tlink.x"]
+# `cargo run` flashes the Due through its programming port (DUE_PORT).
+runner = "arduino-due/flash.sh"

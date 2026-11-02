@@ -1,0 +1,17 @@
+[package]
+name = "sam3x-hal-examples"
+version = "0.1.0"
+description = "One binary per peripheral, written for the Arduino Due"
+publish = false
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+arduino-due = { path = "../arduino-due", features = ["rt"] }
+cortex-m = { workspace = true }
+# set-vtor: the SAM-BA bootloader hands over with VTOR wherever it left it.
+cortex-m-rt = { workspace = true, features = ["set-vtor"] }
+critical-section = { workspace = true }
+panic-halt = { workspace = true }

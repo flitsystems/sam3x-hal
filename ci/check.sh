@@ -10,3 +10,4 @@ rustup toolchain install
 cargo fmt --all --check
 cargo clippy --workspace --all-features -- -D warnings
 RUSTDOCFLAGS="-D warnings" cargo doc --workspace --no-deps --all-features
+cargo build -p sam3x-hal-examples --release

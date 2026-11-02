@@ -12,4 +12,4 @@ cp Cargo.lock Cargo.lock.orig
 trap 'mv Cargo.lock.orig Cargo.lock' EXIT
 CARGO_RESOLVER_INCOMPATIBLE_RUST_VERSIONS=fallback cargo generate-lockfile
 
-cargo "+$msrv" check -p atsam3x8e-pac -p sam3x-hal --all-features
+cargo "+$msrv" check -p atsam3x8e-pac -p sam3x-hal -p arduino-due --all-features
