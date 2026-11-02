@@ -1,7 +1,7 @@
 [package]
 name = "arduino-due"
 version = "0.1.0"
-description = "Board support for the Arduino Due: the SAM3X8E's pins under the names on the silkscreen, the clock tree the board is wired for, and the memory layout"
+description = "Board support for the Arduino Due: the SAM3X8E's pins under the names on the silkscreen, the clock tree and console the board is wired for, and the memory layout"
 keywords = ["arm", "cortex-m", "sam3x", "arduino", "bsp"]
 categories = ["embedded", "hardware-support", "no-std"]
 edition.workspace = true

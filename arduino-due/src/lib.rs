@@ -3,7 +3,8 @@
 //! The Arduino Due is built around the SAM3X8E. This crate gives its pins
 //! the names printed on the board, such as `d13`, `a0`, `dac0`, `sda` or
 //! `can_tx`, and brings up the clock tree the board is designed for:
-//! the 12 MHz crystal and an 84 MHz core.
+//! the 12 MHz crystal and an 84 MHz core. [`console()`] opens the UART on
+//! the programming port, which the board's 16U2 bridges to USB.
 //!
 //! Its build script hands the board's memory layout, `memory.x`, to the
 //! linker, so a firmware for the Due has none of its own. `flash.sh`, the
@@ -22,7 +23,7 @@ pub use sam3x_hal as hal;
 pub use sam3x_hal::pac;
 
 use hal::clocks::{self, Clocks, Config};
-use hal::gpio::{Pin, Reset};
+use hal::gpio::{Peripheral, Pin, PinMode, Reset, A};
 use hal::gpio::{
     PA0, PA1, PA10, PA11, PA12, PA13, PA14, PA15, PA16, PA17, PA18, PA19, PA2, PA20, PA21, PA22,
     PA23, PA24, PA25, PA26, PA27, PA28, PA29, PA3, PA4, PA5, PA6, PA7, PA8, PA9, PB0, PB1, PB10,
@@ -32,6 +33,7 @@ use hal::gpio::{
     PC27, PC28, PC29, PC3, PC30, PC4, PC5, PC6, PC7, PC8, PC9, PD0, PD1, PD10, PD2, PD3, PD4, PD5,
     PD6, PD7, PD8, PD9,
 };
+use hal::usart::{Config as SerialConfig, Serial, UartPins};
 use hal::watchdog::Watchdog;
 
 /// The main crystal.
@@ -40,6 +42,9 @@ pub const XOSC_CRYSTAL_FREQ: u32 = 12_000_000;
 /// The clock tree the board runs: 12 MHz crystal, PLLA at 168 MHz, core at
 /// 84 MHz.
 pub const CLOCK_CONFIG: Config = Config::CRYSTAL_12MHZ_84MHZ;
+
+/// The console baud rate, the Arduino default.
+pub const CONSOLE_BAUD: u32 = 115_200;
 
 /// Disable the watchdog and bring the clock tree to [`CLOCK_CONFIG`].
 ///
@@ -57,6 +62,26 @@ pub fn init(
     match clocks::init(&CLOCK_CONFIG, pmc, supc, efc0, efc1) {
         Ok(clocks) => clocks,
         // CLOCK_CONFIG is checked at compile time.
+        Err(_) => unreachable!(),
+    }
+}
+
+/// The programming port as a serial port: the UART on D0 (RX) and D1 (TX),
+/// behind the 16U2's USB bridge.
+pub type Console = Serial<pac::Uart, Pin<PA8, Peripheral<A>>, Pin<PA9, Peripheral<A>>>;
+
+/// The programming-port console at [`CONSOLE_BAUD`], 8N1.
+pub fn console<M0: PinMode, M1: PinMode>(
+    uart: pac::Uart,
+    pmc: &pac::Pmc,
+    d0: Pin<PA8, M0>,
+    d1: Pin<PA9, M1>,
+    clocks: &Clocks,
+) -> Console {
+    let pins: UartPins = (d0.into_peripheral_a(), d1.into_peripheral_a());
+    match Serial::new(uart, pins, &SerialConfig::new(CONSOLE_BAUD), clocks, pmc) {
+        Ok(console) => console,
+        // 115200 8N1 is valid at every master clock the board runs.
         Err(_) => unreachable!(),
     }
 }

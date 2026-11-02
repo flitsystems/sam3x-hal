@@ -14,6 +14,8 @@ atsam3x8e-pac = { path = "../atsam3x8e-pac", version = "0.1.0", features = ["cri
 critical-section = { workspace = true }
 embedded-dma = { workspace = true }
 embedded-hal = { workspace = true }
+embedded-io = { workspace = true }
+embedded-io-async = { workspace = true }
 defmt = { workspace = true, optional = true }
 
 [features]
