@@ -1,0 +1,25 @@
+[package]
+name = "sam3x-hal"
+version = "0.1.0"
+description = "Hardware abstraction layer for the Microchip SAM3X family (SAM3X8E / SAM3X8ERT)"
+keywords = ["arm", "cortex-m", "sam3x", "hal", "embedded-hal"]
+categories = ["embedded", "hardware-support", "no-std"]
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+atsam3x8e-pac = { path = "../atsam3x8e-pac", version = "0.1.0", features = ["critical-section"] }
+defmt = { workspace = true, optional = true }
+
+[features]
+# The PAC's runtime: vector table, `#[interrupt]`, `device.x`. A binary wants
+# it; a library linking this HAL does not have to.
+rt = ["atsam3x8e-pac/rt"]
+# `defmt::Format` on the public types.
+defmt = ["dep:defmt"]
+
+[package.metadata.docs.rs]
+all-features = true
+targets = ["thumbv7m-none-eabi"]
