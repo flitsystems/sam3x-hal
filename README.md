@@ -15,6 +15,8 @@ Licensed under either of
 
 at your option.
 
+The vendored SVD, `atsam3x8e-pac/svd/ATSAM3X8E.svd`, is Atmel's and keeps the license in its header.
+
 ### Contribution
 
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.

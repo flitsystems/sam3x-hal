@@ -1,0 +1,109 @@
+# svdtools patch spec for the Microchip ATSAM3X8E SVD.
+# The vendored SVD (svd/ATSAM3X8E.svd) comes from the cmsis-svd-data
+# distribution of the Atmel pack. Known defects (wrong access types on some
+# registers) get patched here as they are hit.
+_svd: ../ATSAM3X8E.svd
+
+_derive:
+  PIOB: PIOA
+  PIOC: PIOA
+  PIOD: PIOA
+  USART1: USART0
+  USART2: USART0
+  USART3: USART0
+  TWI1: TWI0
+  EFC1: EFC0
+  CAN1: CAN0
+  TC1: TC0
+  TC2: TC0
+
+SUPC:
+  _add:
+    _interrupts:
+      SUPC:
+        description: "Supply Controller"
+        value: 0
+RSTC:
+  _add:
+    _interrupts:
+      RSTC:
+        description: "Reset Controller"
+        value: 1
+RTC:
+  _add:
+    _interrupts:
+      RTC:
+        description: "Real-time Clock"
+        value: 2
+RTT:
+  _add:
+    _interrupts:
+      RTT:
+        description: "Real-time Timer"
+        value: 3
+WDT:
+  _add:
+    _interrupts:
+      WDT:
+        description: "Watchdog Timer"
+        value: 4
+
+TC0:
+  _cluster:
+    "CHANNEL%s":
+      description: "One of the three channels"
+      "CCR?": {}
+      "CMR?": {}
+      "CMR?_WAVE_EQ_1": {}
+      "SMMR?": {}
+      "CV?": {}
+      "RA?": {}
+      "RB?": {}
+      "RC?": {}
+      "SR?": {}
+      "IER?": {}
+      "IDR?": {}
+      "IMR?": {}
+
+CAN0:
+  _cluster:
+    "MAILBOX%s":
+      description: "One of the eight mailboxes"
+      "MMR?": {}
+      "MAM?": {}
+      "MID?": {}
+      "MFID?": {}
+      "MSR?": {}
+      "MDL?": {}
+      "MDH?": {}
+      "MCR?": {}
+
+DMAC:
+  _cluster:
+    "CHANNEL%s":
+      description: "One of the six channels"
+      "SADDR?": {}
+      "DADDR?": {}
+      "DSCR?": {}
+      "CTRLA?": {}
+      "CTRLB?": {}
+      "CFG?": {}
+
+PWM:
+  _cluster:
+    "CHANNEL%s":
+      description: "One of the eight channels"
+      "CMR?": {}
+      "CDTY?": {}
+      "CDTYUPD?": {}
+      "CPRD?": {}
+      "CPRDUPD?": {}
+      "CCNT?": {}
+      "DT?": {}
+      "DTUPD?": {}
+    "COMPARE%s":
+      description: "One of the eight comparison units"
+      "CMPV?": {}
+      "CMPVUPD?": {}
+      "CMPM?": {}
+      "CMPMUPD?": {}
