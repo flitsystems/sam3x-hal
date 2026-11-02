@@ -179,7 +179,9 @@ name = "sam3x-hal"
 version = "0.1.0"
 dependencies = [
  "atsam3x8e-pac",
+ "critical-section",
  "defmt",
+ "embedded-hal 1.0.0",
 ]
 
 [[package]]

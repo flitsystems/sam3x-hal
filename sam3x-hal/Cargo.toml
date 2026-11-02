@@ -11,6 +11,8 @@ rust-version.workspace = true
 
 [dependencies]
 atsam3x8e-pac = { path = "../atsam3x8e-pac", version = "0.1.0", features = ["critical-section"] }
+critical-section = { workspace = true }
+embedded-hal = { workspace = true }
 defmt = { workspace = true, optional = true }
 
 [features]
