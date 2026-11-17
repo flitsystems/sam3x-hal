@@ -2,6 +2,7 @@
 name = "atsam3x8e-pac"
 version = "0.1.0"
 description = "Peripheral access crate for the Microchip ATSAM3X8E / SAM3X8ERT (generated with svd2rust, committed output)"
+readme = "README.md"
 keywords = ["arm", "cortex-m", "sam3x", "pac", "svd2rust"]
 categories = ["embedded", "hardware-support", "no-std"]
 edition.workspace = true

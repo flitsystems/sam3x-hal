@@ -2,6 +2,7 @@
 name = "sam3x-hal"
 version = "0.1.0"
 description = "Hardware abstraction layer for the Microchip SAM3X family (SAM3X8E / SAM3X8ERT)"
+readme = "README.md"
 keywords = ["arm", "cortex-m", "sam3x", "hal", "embedded-hal"]
 categories = ["embedded", "hardware-support", "no-std"]
 edition.workspace = true
