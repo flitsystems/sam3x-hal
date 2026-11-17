@@ -12,6 +12,7 @@ any other.
 
 - `clocks`: clock tree, PLL and master clock, flash wait states
 - `watchdog`: start, feed, disable
+- `systick`: SysTick as an embedded-hal `DelayNs`
 - `gpio`: pins with their mode in the type, interrupts, input filters
 - `usart`: UART and USART0-3, blocking and async
 - `pdc`: transfers through the Peripheral DMA Controller
