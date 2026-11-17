@@ -216,6 +216,7 @@ name = "sam3x-hal"
 version = "0.1.0"
 dependencies = [
  "atsam3x8e-pac",
+ "cortex-m",
  "critical-section",
  "defmt",
  "embedded-dma",
@@ -232,6 +233,7 @@ dependencies = [
  "cortex-m",
  "cortex-m-rt",
  "critical-section",
+ "embedded-hal 1.0.0",
  "panic-halt",
 ]
 

@@ -9,6 +9,7 @@ pub mod clocks;
 pub mod efc;
 pub mod gpio;
 pub mod pdc;
+pub mod systick;
 pub mod usart;
 pub mod waker;
 pub mod watchdog;
