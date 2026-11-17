@@ -9,9 +9,7 @@
 //! Its build script hands the board's memory layout, `memory.x`, to the
 //! linker, so a firmware for the Due has none of its own. `flash.sh`, the
 //! cargo runner, writes a firmware through the programming port and the
-//! SAM-BA bootloader in ROM. That bootloader leaves the vector table
-//! register where it was: build the firmware with cortex-m-rt's `set-vtor`
-//! feature.
+//! SAM-BA bootloader in ROM.
 //!
 //! See the [Arduino Due documentation] for the board itself.
 //!

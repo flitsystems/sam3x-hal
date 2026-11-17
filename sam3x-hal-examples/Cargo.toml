@@ -11,7 +11,6 @@ rust-version.workspace = true
 [dependencies]
 arduino-due = { path = "../arduino-due", features = ["rt"] }
 cortex-m = { workspace = true }
-# set-vtor: the SAM-BA bootloader hands over with VTOR wherever it left it.
-cortex-m-rt = { workspace = true, features = ["set-vtor"] }
+cortex-m-rt = { workspace = true }
 critical-section = { workspace = true }
 panic-halt = { workspace = true }
